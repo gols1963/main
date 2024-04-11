@@ -1,1 +1,13 @@
-test
+---
+- name: copy file
+  hosts: all
+  become: yes
+  
+  tasks:
+    - name: copy file
+      file:
+        path: /opt/test
+        state: touch
+        owner: root
+        group: root
+        mode: 644
