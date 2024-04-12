@@ -1,8 +1,10 @@
 ---
-- name: tsduck_playbook
-  hosts: all
-  become: yes
 
-
-  tasks: 
-    copy: content="test" dest="/opt/test
+- hosts: all
+  tasks:
+  - name: Creating a file with content
+    copy:
+      dest: "/opt/test"
+      content: |
+        line 01
+        line 02
