@@ -9,3 +9,8 @@
         line 01
         line 02
   - name: systemctl enable
+    copy:
+      dest: "/opt/test2"
+      content: |
+        line 01
+        line 02
