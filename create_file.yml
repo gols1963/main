@@ -8,3 +8,4 @@
       content: |
         line 01
         line 02
+  - name: systemctl enable
