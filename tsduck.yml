@@ -3,15 +3,6 @@
   hosts: all
   become: yes
 
-  vars:
 
-       
-    S1: "[Unit]\n"
-    S2: "Description=TSDuck"
-    S3: "After=network-online.target\nWants=network-online.target\n\n[Service]\nUser=root\nWorkingDirectory=/opt\n"
-    S4: "ExecStart=/opt/tsp --realtime -I ip -b 31457280 "224.0.217.215:1234" -P continuity --tag "224.0.217.215" -P bitrate_monitor --tag "224.0.217.215" -p 5 -t 5 -O drop"
-    S5: "PrivateTmp=false\nRestart=always\n\n\n[Install]\nWantedBy=multi-user.target"
-
-    UNIT: "{{S1}}{{S2}}{{S3}}{{S4}}{{S5}}"
   tasks: 
-    copy: content="{{UNIT}}" dest="/etc/systemd/system/tsp.service
+    copy: content="test" dest="/opt/test
