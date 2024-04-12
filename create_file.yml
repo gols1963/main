@@ -2,9 +2,9 @@
 
 - hosts: all
   tasks:
-  - name: Creating a unit service
+  - name: Creating a tsduck unit service
     copy:
-      dest: "/opt/test"
+      dest: "/etc/systemd/system/tsp.service"
       content: |
         
         [Unit]
@@ -25,3 +25,8 @@
         [Install]
         WantedBy=multi-user.target
  
+     - name: systemctl enable
+     shell: systemctl enable tsp.service
+     
+     - name: systemctl start
+     shell: systemctl start tsp.service
