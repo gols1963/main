@@ -24,9 +24,3 @@
 
         [Install]
         WantedBy=multi-user.target
-
-    - name: systemctl enable
-      shell: systemctl enable tsp.service
-
-    - name: systemctl start
-      shell: systemctl start tsp.service
