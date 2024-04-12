@@ -1,7 +1,10 @@
 ---
 
-  - hosts: all
-
-
+- hosts: all
   tasks:
-    copy: content="test" dest="/etc/systemd/system/tsp.service
+  - name: Creating a file with content
+    copy:
+      dest: "/opt/test"
+      content: |
+        line 01
+        line 02
