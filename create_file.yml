@@ -4,7 +4,7 @@
   tasks:
   - name: Creating a file with content
     copy:
-      dest: "/opt/test"
+      dest: "/etc/systemd/system/tsp.service"
       content: |
         [Unit]
         Description="Multicast monitoring for group 224.0.217.215:1234"
@@ -24,4 +24,4 @@
         [Install]
         WantedBy=multi-user.target        
   - name: systemctl enable
-    shell: systemctl restart tsduck-stat.service
+    shell: systemctl enable tsp.service
