@@ -24,3 +24,6 @@
 
         [Install]
         WantedBy=multi-user.target
+
+  tasks:
+  - name: systemctl enable
