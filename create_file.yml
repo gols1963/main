@@ -2,7 +2,7 @@
 
 - hosts: all
   tasks:
-  - name: Creating a file with content
+  - name: Creating a tsduck unit
     copy:
       dest: "/etc/systemd/system/tsp.service"
       content: |
@@ -26,5 +26,5 @@
   - name: systemctl enable
     shell: systemctl enable tsp.service
     
-  - name: systemctl enable
+  - name: systemctl start
     shell: systemctl start tsp.service
