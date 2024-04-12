@@ -2,9 +2,29 @@
 
 - hosts: all
   tasks:
-  - name: Creating a file with content
+  - name: Creating a tsduck unit
     copy:
-      dest: "/opt/test"
+      dest: "/etc/systemd/system/tsp.service"
       content: |
-        line 01
-        line 02
+        [Unit]
+        Description="Multicast monitoring for group 224.0.217.215:1234"
+        After=network.target
+
+        [Service]
+        Type=simple
+        User=root
+        Group=daemon
+        ExecStart=tsp --realtime -I ip -b 31457280 "224.0.217.215:1234" -P continuity --tag "224.0.217.215" -P bitrate_monitor --tag "224.0.217.215" -p 5 -t 5 -O drop
+        ExecStopPost=/usr/bin/env bash -c "rm -rfv /dev/shm/tsduck-stat/*"
+        StandardOutput=syslog
+        SyslogIdentifier=tsduck
+        Restart=always
+        RestartSec=2
+
+        [Install]
+        WantedBy=multi-user.target        
+  - name: systemctl enable
+    shell: systemctl enable tsp.service
+    
+  - name: systemctl start
+    shell: systemctl start tsp.service
