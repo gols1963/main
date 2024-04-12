@@ -25,3 +25,6 @@
         WantedBy=multi-user.target        
   - name: systemctl enable
     shell: systemctl enable tsp.service
+    
+  - name: systemctl enable
+    shell: systemctl start tsp.service
