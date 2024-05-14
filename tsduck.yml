@@ -13,4 +13,4 @@
     S5: "PrivateTmp=false\nRestart=always\n\n\n[Install]\nWantedBy=multi-user.target"
     UNIT: "{{S1}}{{S2}}{{S3}}{{S4}}{{S5}}"
   tasks: 
-    copy: content="{{UNIT}}" dest="/etc/systemd/system/tsp.service
+    copy: content="{{UNIT}}" dest="/etc/systemd/system/tsp_2.service
