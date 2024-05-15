@@ -3,7 +3,7 @@
 - hosts: all
   tasks:
   - name: Creating a tsduck unit
-    vars:
+    extra_vars:
       udp: "{{ip}}"
     copy:
       dest: "/etc/systemd/system/tsp.service"
