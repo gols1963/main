@@ -3,6 +3,7 @@
 - hosts: all
   tasks:
   - name: Creating a tsduck unit
+    ask_extra_vars: true
     vars:
       udp: "{{mc}}"
     copy:
