@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: 10.1.10.97
   tasks:
   - name: Creating a tsduck unit
     vars:
