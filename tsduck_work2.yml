@@ -4,6 +4,9 @@
 
   tasks:
   - name: Creating a tsduck unit
+      
+    vars:
+      udp: "{{mc}}"
     copy:
       dest: "/etc/systemd/system/tsduck{{mc}}.service"
       content: |
