@@ -26,9 +26,9 @@
         RestartSec=2
 
         [Install]
-        WantedBy=multi-user.target        
+        WantedBy=multi-user.target
   - name: systemctl enable
-    shell: systemctl enable tsduck{{udp}}.service
+    shell: systemctl enable tsduck{{mc}}.service
     
   - name: systemctl start
-    shell: systemctl start tsduck{{udp}}.service
+    shell: systemctl start tsduck{{mc}}.service
