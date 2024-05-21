@@ -28,8 +28,7 @@
         [Install]
         WantedBy=multi-user.target        
   - name: systemctl enable
-    shell: systemctl start tsduck{{mc}}.service
     shell: systemctl enable tsduck{{mc}}.service
     
   - name: systemctl start
-    shell: systemctl start tsp.service
+    shell: systemctl start tsp{{mc}}.service
