@@ -11,7 +11,7 @@
       dest: "/etc/systemd/system/tsduck{{mc}}.service"
       content: |
         [Unit]
-        Description="Multicast monitoring for group 224.0.217.215:1234"
+        Description="Multicast monitoring for group {{mc}}"
         After=network.target
 
         [Service]
@@ -28,7 +28,8 @@
         [Install]
         WantedBy=multi-user.target        
   - name: systemctl enable
-    shell: systemctl enable tsp.service
+    shell: systemctl start tsduck{{mc}}.service
+    shell: systemctl enable tsduck{{mc}}.service
     
   - name: systemctl start
     shell: systemctl start tsp.service
