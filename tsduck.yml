@@ -8,17 +8,17 @@
     vars:
       udp: "{{mc}}"
     copy:
-      dest: "/etc/systemd/system/tsduck{{mc}}.service"
+      dest: "/etc/systemd/system/tsduck{{udp}}.service"
       content: |
         [Unit]
-        Description="Multicast monitoring for group {{mc}}"
+        Description="Multicast monitoring for group {{udp}}"
         After=network.target
 
         [Service]
         Type=simple
         User=root
         Group=daemon
-        ExecStart=tsp --realtime -I ip -b 31457280 {{udp}} -P continuity --tag "224.0.217.215" -P bitrate_monitor --tag "224.0.217.215" -p 5 -t 5 -O drop
+        ExecStart=tsp --realtime -I ip -b 31457280 {{udp}} -P continuity --tag "{{udp}}" -P bitrate_monitor --tag "{{udp}}" -p 5 -t 5 -O drop
         ExecStopPost=/usr/bin/env bash -c "rm -rfv /dev/shm/tsduck-stat/*"
         StandardOutput=syslog
         SyslogIdentifier=tsduck
@@ -28,7 +28,7 @@
         [Install]
         WantedBy=multi-user.target        
   - name: systemctl enable
-    shell: systemctl enable tsduck{{mc}}.service
+    shell: systemctl enable tsduck{{udp}}.service
     
   - name: systemctl start
-    shell: systemctl start tsduck{{mc}}.service
+    shell: systemctl start tsduck{{udp}}.service
