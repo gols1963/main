@@ -15,7 +15,7 @@
         Type=simple
         User=root
         Group=daemon
-        ExecStart=tsp --realtime -I ip -b 31457280 {{mc}} -P continuity --tag "{{mc}}" -P bitrate_monitor --tag "{{udp}}" -p 5 -t 5 -O drop
+        ExecStart=tsp --realtime -I ip -b 31457280 {{mc}} -P continuity --tag "{{mc}}" -P bitrate_monitor --tag "{{mc}}" -p 5 -t 5 -O drop
         ExecStopPost=/usr/bin/env bash -c "rm -rfv /dev/shm/tsduck-stat/*"
         StandardOutput=syslog
         SyslogIdentifier=tsduck
