@@ -31,4 +31,4 @@
     shell: systemctl enable tsduck{{mc}}.service
     
   - name: systemctl start
-    shell: systemctl start tsp{{mc}}.service
+    shell: systemctl start tsduck{{mc}}.service
