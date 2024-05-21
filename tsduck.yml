@@ -8,7 +8,7 @@
     vars:
       udp: "{{mc}}"
     copy:
-      dest: "/etc/systemd/system/tsp.service"
+      dest: "/etc/systemd/system/tsduck{{mc}}.service"
       content: |
         [Unit]
         Description="Multicast monitoring for group 224.0.217.215:1234"
